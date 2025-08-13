@@ -29,6 +29,7 @@ public class TestSql {
             System.out.println(resultSet.getInt("ID") + " " + resultSet.getString("Name") + " " +
                     resultSet.getString("District"));
         }
+
         connection.close();
     }
 }
