@@ -7,63 +7,34 @@ import jm.task.core.jdbc.model.User;
 import java.util.List;
 
 public class UserServiceImpl implements UserService {
+    UserDao userDao = new UserDaoJDBCImpl();
+
     public void createUsersTable() {
-        UserDao userDao = new UserDaoJDBCImpl();
+        userDao.createUsersTable();
+    }
 
-        @Override
-        public void createUsersTable () {
-            userDao.createUsersTable();
+    public void dropUsersTable() {
+        userDao.dropUsersTable();
+    }
+
+    public void saveUser(String name, String lastName, byte age) {
+        userDao.saveUser(name, lastName, age);
+        System.out.println("User с именем – " + name + " добавлен в базу данных");
+    }
+
+    public void removeUserById(long id) {
+        userDao.removeUserById(id);
+    }
+
+    public List<User> getAllUsers() {
+        List<User> users =  userDao.getAllUsers();
+        for (User user : users) {
+            System.out.println(user);
         }
+        return users;
+    }
 
-        @Override
-        public void dropUsersTable () {
-            userDao.dropUsersTable();
-        }
-
-        @Override
-        public void saveUser (String name, String lastName, byte age){
-            userDao.saveUser(name, lastName, age);
-            System.out.println("User с именем - " + name + " добавлен в базу данных");
-        }
-
-        @Override
-        public void removeUserById ( long id){
-            userDao.removeUserById(id);
-        }
-
-        @Override
-        public List<User> getAllUsers () {
-            List<User> users = userDao.getAllUsers()
-            for (User user : users) {
-                System.out.println(user);
-            }
-            return users;
-        }
-
-        @Override
-        public void cleanUsersTable () {
-            userDao.cleanUsersTable();
-
-        }
+    public void cleanUsersTable() {
+        userDao.cleanUsersTable();
     }
 }
-
-/*public void dropUsersTable() {
-
-}
-
-public void saveUser(String name, String lastName, byte age) {
-
-}
-
-public void removeUserById(long id) {
-
-}
-
-public List<User> getAllUsers() {
-    return null;
-}
-
-public void cleanUsersTable() {
-
-}*/
