@@ -9,10 +9,10 @@ public class Main {
     public static void main(String[] args) {
         userService.createUsersTable();
 
-        userService.saveUser("Джо", "Байден", (byte) 78);
-        userService.saveUser("Трамп", "Дональд", (byte) 74);
-        userService.saveUser("Барак", "Обама", (byte) 59);
-        userService.saveUser("Джордж", "Буш", (byte) 74);
+        userService.saveUser("Александр", "Иванов", (byte) 90);
+        userService.saveUser("Мария", "Смирнова", (byte) 80);
+        userService.saveUser("Дмитрий", "Петров", (byte) 70);
+        userService.saveUser("Ольга", "Кузнецова", (byte) 60);
 
         userService.removeUserById(2);
 
